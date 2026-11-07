@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; worker-src 'self' blob:; style-src 'self'; img-src 'self' data:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light dark">
+  <title>28-hour check</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <h1>28-hour check</h1>
+      <p>Upload your workplace's shift schedule, type your name, and see whether your shifts stay within 28 hours in any 7 days.</p>
+      <p class="quiet">Your schedule stays on this device. Nothing is uploaded anywhere.</p>
+    </header>
+
+    <section id="schedules" class="block" aria-labelledby="schedules-title">
+      <h2 id="schedules-title">Schedules</h2>
+      <div id="schedule-list"></div>
+      <label class="button primary file-button">
+        <input id="pdf-input" type="file" accept="application/pdf,.pdf">
+        <span>Add schedule PDF</span>
+      </label>
+      <p id="upload-status" class="status-line" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="name-block" class="block" aria-labelledby="name-title" hidden>
+      <h2 id="name-title">Your name</h2>
+      <form id="name-form" class="name-form" autocomplete="off">
+        <label for="name-input" class="quiet">As it's written on the schedule</label>
+        <div class="name-row">
+          <input id="name-input" name="name" type="text" list="name-options" autocapitalize="words" spellcheck="false">
+          <button type="submit" class="button primary">Check my hours</button>
+        </div>
+        <datalist id="name-options"></datalist>
+      </form>
+      <div id="name-help" aria-live="polite"></div>
+    </section>
+
+    <section id="review-block" class="block" hidden></section>
+
+    <section id="result-block" class="block result" aria-live="polite" hidden></section>
+
+    <footer class="footer">
+      <div class="backup">
+        <button id="export-button" type="button" class="button">Save a backup</button>
+        <label class="button file-button">
+          <input id="import-input" type="file" accept="application/json,.json">
+          <span>Restore a backup</span>
+        </label>
+        <button id="clear-button" type="button" class="button danger-text">Remove everything</button>
+      </div>
+      <p class="quiet">This is a helper, not legal advice. The 28-hour limit covers all your jobs together, so add hours from any other job yourself. Check the permission on your residence card if unsure.</p>
+      <p class="quiet">Saved schedules live only in this browser. iPhone Safari may clear them after about a week without a visit, so keep a backup.</p>
+    </footer>
+  </main>
+</body>
+</html>
